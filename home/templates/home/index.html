@@ -1,13 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/showcase.css' %}" />
+{% endblock %}
+
 {% block content %}
 
     <div class="row landing-page">
-        <div class = "col-12 col-sm-12  col-md-12 col-lg-6 " id="accordion-wrapper">
-            <h1 class="text-center mt-4">Upcoming Hackathons</h1>
+        <div class = "col-12 col-md-6" id="accordion-wrapper">
+            <h1 class="p-orange text-center mt-4">Upcoming Hackathons</h1>
             <div class="accordion" id="accordion-upcoming-hackathons">
+
                 {% if hackathons %}
+                
                     {% for hackathon in hackathons %}
                         {% if hackathon.status == 'published' %}
                             {% if hackathon.organisation == 'Code Institute' or hackathon.organisation == user.organisation %}
@@ -30,15 +36,14 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             {% endif %}
                         {% endif %}
                     {% endif %}
                 {% endfor %}
+            </div>
                 {% else %}
                 <h2 class="text-center">There aren't any Hackathons at the moment!</h2>
                 {% endif %}
-            </div>
             <div class="project-list">
                 <ol class="list">Project Portfolio
                     <li>Hackathon #1</li>
@@ -47,19 +52,61 @@
                 </ol>
             </div>
         </div>
-        <div class = "col-12 col-sm-12 col-md-12 col-lg-6">
+        <div class = "col-12 col-md-6">
             
             <div class="card mt-4">
-                <img class="card-img-top" src="{% static 'img/ci-hacking-new-normal--square.png' %}" alt="Code Institute Hackathon Logo">
+                <img class="card-img-top" src="{% static 'img/ci-hacking-new-normal--square.png' %}" alt="Code Institute Hackathon Logo"/>
             </div>
         </div>
     </div>
 
     <div class="row">
         <div class="col-12">
+            <hr class="w-100 mb-1 thick mt-4">
+            <h1 class="mt-4 text-center">Submission Showcases</h1>
+            <div class="showcase-wrapper">
+                <div class="showcase">
+                    <a href="#">
+                        <span class="showcase-img absolute">
+                            <img class="absolute" src="{% static 'img/showcase/elder_care_382x400.png' %}" alt="Artistic Heart"/>
+                        </span>
+                        <span class="showcase-content absolute">
+                            <h4>Elder Care</h4>
+                            <p class="btn btn-ci">See More...</p>
+                        </span>
+                    </a>
+                </div>
+                <div class="showcase">
+                    <a href="#">
+                        <span class="showcase-img absolute">
+                            <img class="absolute" src="{% static 'img/showcase/family_wall_368x401.png' %}" alt="Smiling Family"/>
+                        </span>
+                        <span class="showcase-content absolute">
+                            <h4>Family Wall</h4>
+                            <p class="btn btn-ci">See More...</p>
+                        </span>
+                    </a>
+                </div>
+                <div class="showcase">
+                    <a href="#">
+                        <span class="showcase-img absolute">
+                            <img class="absolute" src="{% static 'img/showcase/lets_play_362x401.png' %}" alt="Cartoon image of kid playing guitar"/>
+                        </span>
+                        <span class="showcase-content absolute">
+                            <h4>Lets Play</h4>
+                            <p class="btn btn-ci">See More...</p>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="row">
+        <div class="col-12">
             <div id="carousel-wrapper">
                 <hr class="w-100 mb-1 thick mt-4">
-            <h1 class=" text text-center">Submission Showcases</h1>
+            <h1 class="mt-4 text-center">Submission Showcases</h1>
                 <div id="carousel-project-showcase" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -83,7 +130,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 {% endblock %}
