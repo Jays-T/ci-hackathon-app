@@ -14,14 +14,20 @@
     --white: #FFFFFF;
     --black: #000000;
     --bg-grey: #F5F5F5;
+
+    /* radius | margin | padding */
+    --radius: 2px;
+    --margin: 0 3.2rem;
+    --padding: 1.2rem;
+
+    /* landing page hackathon */
+    --lh: 1.4rem;
+    --max-lines: 3;
 }
 
 html,
 body {
     height: 100%;
-}
-
-body {
     display: flex;
     flex-direction: column;
     font-family: Montserrat, sans-serif;
@@ -66,6 +72,12 @@ a:hover {
 main {
     margin-top: 2em;
     flex: 1 0 auto;
+}
+
+/* Images */
+
+html img {
+    border-radius: var(--radius);
 }
 
 /* BUTTONS */
@@ -151,10 +163,10 @@ footer ul li a {
 }
 
 /* CARDS */
-.accordion .card .card-link {
-    text-decoration: none;
-    color: var(--p-grey);
+html .card {
+    border-radius: var(--radius);
 }
+
 .card-link:hover {
     color: rgba(0, 0, 0, .7); 
 }
@@ -191,18 +203,6 @@ html .all-auth-container {
     justify-items: center;
 }
 
-.accordion .card-header {
-    background: var(--s-grey);
-}
-
-.accordion .card {
-    background: var(--bg-grey);
-}
-
-.card-header h2 .btn-link {
-    text-decoration: none;
-}
-
 .card-header {
     background-color: var(--t-orange);
 }
@@ -218,6 +218,31 @@ html .all-auth-container {
     cursor: pointer;
     color: var(--p-orange);
 }
+
+/* landing page hackathon accordion */
+.index-hack-description {
+    line-height: var(--lh);
+  }
+  
+  .truncate-overflow {
+    position: relative;
+    max-height: calc(var(--lh) * var(--max-lines));
+    overflow: hidden;
+    padding-right: 1rem; /* space for ellipsis */
+  }
+  .truncate-overflow::before {
+    position: absolute;
+    content: "";
+    inset-block-end: 0; /* "bottom" */
+    inset-inline-end: 0; /* "right" */
+  }
+  .truncate-overflow::after {
+    position: absolute;
+    content: "...";
+    inset-inline-end: 0;
+    width: 1rem;
+    height: 1rem;
+  }
 
 #accordion-wrapper>h1,
 #carousel-wrapper>h1 {
@@ -239,13 +264,12 @@ html .all-auth-container {
     width: 100%;
     height: auto;
     background-color:var(--t-orange);
-    border-radius: 10px;
+    border-radius: var(--radius);
 }
 
 .list li{
     font-size: 0.5em;
     text-align: left;
-
 }
 
 .bg-p-blue {

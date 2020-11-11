@@ -33,12 +33,5 @@
 
 hr.thick {
     border: 2px solid var(--p-orange);
-    border-radius: 2px;
-}
-
-/* Target specific text with heavier font weight */
-
-html form label,
-.dark-text {
-    font-weight: 700;
+    border-radius: var(--radius);
 }
