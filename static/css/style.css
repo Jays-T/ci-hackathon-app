@@ -16,7 +16,7 @@
     --bg-grey: #F5F5F5;
 
     /* radius | margin | padding */
-    --radius: 2px;
+    --radius: 4px;
     --margin: 0 3.2rem;
     --padding: 1.2rem;
 
@@ -46,6 +46,11 @@ a:hover {
     border-radius: .4rem;
     box-shadow:  5px 5px 9px #d8d8d8, 
              -6px -6px 7px #ffffff;
+}
+
+.reverse-content-shadow {
+    box-shadow:  inset 5px 5px 9px #d8d8d8, 
+             inset -6px -6px 7px #ffffff;
 }
 
 /* NAVBAR */
@@ -84,7 +89,7 @@ html img {
 .btn-ci {
     background-color: transparent;
     color: var(--p-orange);
-    border: 3px solid var(--p-orange);
+    border: 1px solid var(--p-orange);
     transition: all .4s;
 }
 
@@ -164,7 +169,22 @@ footer ul li a {
 
 /* CARDS */
 html .card {
-    border-radius: var(--radius);
+    border: none;
+    background: var(--bg-grey);
+}
+
+.accordion .card .card-link {
+    text-decoration: none;
+    color: var(--p-grey);
+}
+
+.accordion .card .card-header {
+    background: var(--bg-grey);
+}
+
+.accordion .card .card-header .btn .card-title i {
+    color: var(--p-orange);
+    opacity: .8;
 }
 
 .card-link:hover {
@@ -222,6 +242,9 @@ html .all-auth-container {
 /* landing page hackathon accordion */
 .index-hack-description {
     line-height: var(--lh);
+    background: var(--white);
+    border: solid var(--p-grey);
+    border-radius: var(--radius);
   }
   
   .truncate-overflow {
@@ -247,8 +270,7 @@ html .all-auth-container {
 #accordion-wrapper>h1,
 #carousel-wrapper>h1 {
     font-size: 2rem;
-    margin-bottom: 20px;
-    color:var(--black);
+    margin-bottom: 1.8rem;
 }
 
 .project-list>ol{
